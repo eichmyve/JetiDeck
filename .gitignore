@@ -1,0 +1,8 @@
+# Fremddateien (Rechte bei Jeti, VSpeak, LeonAir RC) - nur lokal
+JETI DCDS_Lua_API_1.7.pdf
+VS_glass.lc
+analyse/xc-flight/original/
+
+# Python
+__pycache__/
+*.pyc
