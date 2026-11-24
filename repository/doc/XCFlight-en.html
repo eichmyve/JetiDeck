@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XC-Flight</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 16px; line-height: 1.45; color: #222; background: #fff; }
+  h1 { color: #c8202c; margin-bottom: 4px; }
+  h2 { border-bottom: 1px solid #ddd; padding-bottom: 2px; margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #f3f3f3; }
+  .hint { background: #fff4e5; border-left: 4px solid #e8a33d; padding: 8px 10px; }
+</style>
+</head>
+<body>
+<h1>XC-Flight</h1>
+<p>Start detection and scoring flight for cross-country flights according to the Free Glide League rules
+(version 1.0.6). Rewrite based on the app "Free Glide League" by LeonAir RC.</p>
+
+<h2>Sequence</h2>
+<ol>
+  <li><b>Ready:</b> turn on the start switch while the model is below the maximum altitude (400 m).</li>
+  <li><b>Entry time (10 s):</b> at least 5 m above ground, below 400 m, ENL below the limit (300 = 30 %)
+      and continuous sinking. A violation triggers an alarm and the entry time restarts.</li>
+  <li><b>Scoring flight:</b> GPS distance, average speed and flight time. Time classes at 30 min, 1 h, 2 h, 3 h.</li>
+  <li><b>Reset switch:</b> ends the measurement, back to "Ready".</li>
+</ol>
+
+<h2>Rules during the scoring flight</h2>
+<table>
+  <tr><th>Situation</th><th>Reaction</th></tr>
+  <tr><td>above 700 m (warning altitude)</td><td>altitude alarm every 5 s</td></tr>
+  <tr><td>above 750 m</td><td>INVALID, values frozen</td></tr>
+  <tr><td>motor on (ENL above limit and climb &gt; 1 m/s for more than 8 s) before 30 min</td><td>INVALID</td></tr>
+  <tr><td>motor on after 30 min</td><td>scored up to the last time class reached</td></tr>
+  <tr><td>distance below 5 km</td><td>grey with "&lt; 5 km"; three beeps at 5 km</td></tr>
+</table>
+
+<h2>Settings</h2>
+<table>
+  <tr><th>Section</th><th>Content (default)</th></tr>
+  <tr><td>Sensors</td><td>ENL, altitude (relative to launch site), GPS latitude and longitude</td></tr>
+  <tr><td>Switches</td><td>start, reset</td></tr>
+  <tr><td>Audio and alarms</td><td>announce average speed every 10 s (0 = off), audio files for ENL, climb,
+      altitude alarm and start (without file: fallback beeps), start countdown (off/voice/beep)</td></tr>
+  <tr><td>Start rules</td><td>entry time 10 s, minimum altitude 5 m, maximum altitude 400 m, ENL limit 300,
+      minimum sink 0.0 m, climb tolerance 0.3 m</td></tr>
+  <tr><td>Scoring flight</td><td>warning altitude 700 m, max. scoring altitude 750 m</td></tr>
+  <tr><td>Other</td><td>announce km from 5 km</td></tr>
+</table>
+<p>The menu is locked during entry time and flight.</p>
+
+<h2>Display</h2>
+<p>Full-page telemetry window "XC-Flight": during the flight distance, average speed and flight time in large
+font, during the entry time the countdown, on the right an ENL bar marking the limit.</p>
+
+<h2>ENGO 2 glasses</h2>
+<p>With the app "VSpeak glasses 2" (VSGL2) the values appear on the glasses:
+page "XC-Flight 1" = distance, average speed, flight time; page "XC-Flight 2" = altitude, entry timer, ENL.</p>
+
+<p class="hint">Provided as an aid without warranty. Scoring is done from the IGC file according to the rules.
+Tested in the JETI Studio emulator; a test on the transmitter is still pending.</p>
+</body>
+</html>

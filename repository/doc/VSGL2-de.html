@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSpeak glasses 2</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 16px; line-height: 1.45; color: #222; background: #fff; }
+  h1 { color: #2a78b8; margin-bottom: 4px; }
+  h2 { border-bottom: 1px solid #ddd; padding-bottom: 2px; margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #f3f3f3; }
+  .hint { background: #fff4e5; border-left: 4px solid #e8a33d; padding: 8px 10px; }
+</style>
+</head>
+<body>
+<h1>VSpeak glasses 2</h1>
+<p>Robuster Ersatz für die App „VSpeak glasses“: zeigt Telemetriewerte über das VSpeak-glasses-Modul
+an P1 (COM1) auf einer ActiveLook-Brille wie der ENGO 2. Gleiches Protokoll wie das Original.</p>
+
+<h2>Unterschied zum Original</h2>
+<p>Das Original beantwortet eine Anfrage des Moduls nur, wenn sie genau in einem Stück ankommt.
+Zerstückelte oder zusammengeklebte Anfragen (am Sender gemessen rund 5 %) bleiben unbeantwortet,
+und die Werte auf der Brille frieren ein. VSGL2 setzt die Anfragen in einem Puffer wieder zusammen.</p>
+
+<h2>Voraussetzungen</h2>
+<ul>
+  <li>Sender mit COM1 an P1 (DC/DS-24, DS-12)</li>
+  <li>VSpeak-glasses-Modul an P1, ActiveLook-Brille</li>
+  <li>Nur <b>eine</b> App darf COM1 belegen: „VSpeak glasses“ im Modell deaktivieren.</li>
+</ul>
+
+<h2>Einstellungen</h2>
+<table>
+  <tr><th>Feld</th><th>Bedeutung</th></tr>
+  <tr><td>Seiten-Schalter</td><td>wählt Seite 1, 2 oder 3 (Mitte = 2)</td></tr>
+  <tr><td>BLE (On/Off)</td><td>Bluetooth des Moduls ein/aus</td></tr>
+  <tr><td>Minus signs, Einheiten anzeigen</td><td>wie im Original</td></tr>
+  <tr><td>Seite bearbeiten</td><td>welche Seite unten eingestellt wird (folgt dem Seiten-Schalter)</td></tr>
+  <tr><td>Quelle</td><td><b>Sensoren</b> (3 Sensoren frei wählbar), <b>XC-Flight 1</b> (Strecke, Ø-Geschwindigkeit,
+      Flugzeit) oder <b>XC-Flight 2</b> (Höhe, Einflug-Timer, ENL)</td></tr>
+  <tr><td>Schriftgröße</td><td>je Platz small/middle/large</td></tr>
+  <tr><td>Taste 1</td><td>gespeicherte Brille im Modul vergessen (bei Brillenwechsel)</td></tr>
+</table>
+<p>Für die Seiten „XC-Flight“ muss die App XC-Flight laufen; sonst zeigt die Brille „-//-“.
+Der Einflug-Timer zeigt „--“ (bereit), 10…1 s, „OK“ (Flug), „X“ (ungültig) oder „END“ (Motor nach 30 min).</p>
+
+<h2>Diagnose</h2>
+<p>Telemetrie-Anzeige „VSGL2 Diagnose“: Anfragen, Antworten, zerstückelt, geklebt, Müllbytes, Fehler,
+längste Lücke, Lücken über 1 s, letzte Anfrage, Speicher.</p>
+
+<p class="hint">Hilfsmittel ohne Gewähr; keine kritischen Funktionen über Lua-Apps steuern.
+Die Seiten „XC-Flight“ sind im Emulator getestet, mit Brille und Modul steht der Test noch aus.</p>
+</body>
+</html>

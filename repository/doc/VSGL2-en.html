@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSpeak glasses 2</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 16px; line-height: 1.45; color: #222; background: #fff; }
+  h1 { color: #2a78b8; margin-bottom: 4px; }
+  h2 { border-bottom: 1px solid #ddd; padding-bottom: 2px; margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #f3f3f3; }
+  .hint { background: #fff4e5; border-left: 4px solid #e8a33d; padding: 8px 10px; }
+</style>
+</head>
+<body>
+<h1>VSpeak glasses 2</h1>
+<p>Robust replacement for the app "VSpeak glasses": shows telemetry values on ActiveLook glasses such as the
+ENGO 2 through the VSpeak glasses module on P1 (COM1). Same protocol as the original.</p>
+
+<h2>Difference to the original</h2>
+<p>The original only answers a request from the module if it arrives in exactly one piece. Fragmented or
+merged requests (about 5 % measured on the transmitter) stay unanswered and the values on the glasses freeze.
+VSGL2 reassembles the requests in a buffer.</p>
+
+<h2>Requirements</h2>
+<ul>
+  <li>Transmitter with COM1 on P1 (DC/DS-24, DS-12)</li>
+  <li>VSpeak glasses module on P1, ActiveLook glasses</li>
+  <li>Only <b>one</b> app may use COM1: deactivate "VSpeak glasses" in the model.</li>
+</ul>
+
+<h2>Settings</h2>
+<p>The app menu is in German; the German label is given in brackets.</p>
+<table>
+  <tr><th>Field</th><th>Meaning</th></tr>
+  <tr><td>Page switch (Seiten-Schalter)</td><td>selects page 1, 2 or 3 (centre = 2)</td></tr>
+  <tr><td>BLE (On/Off)</td><td>Bluetooth of the module on/off</td></tr>
+  <tr><td>Minus signs, show units (Einheiten anzeigen)</td><td>as in the original</td></tr>
+  <tr><td>Edit page (Seite bearbeiten)</td><td>which page is set up below (follows the page switch)</td></tr>
+  <tr><td>Source (Quelle)</td><td><b>Sensors</b> (3 freely chosen sensors), <b>XC-Flight 1</b> (distance, average speed,
+      flight time) or <b>XC-Flight 2</b> (altitude, entry timer, ENL)</td></tr>
+  <tr><td>Font size</td><td>small/middle/large per slot</td></tr>
+  <tr><td>Key 1 (Taste 1 = Brille vergessen)</td><td>forget the glasses stored in the module (when changing glasses)</td></tr>
+</table>
+<p>The "XC-Flight" pages need the app XC-Flight running; otherwise the glasses show "-//-".
+The entry timer shows "--" (ready), 10…1 s, "OK" (flight), "X" (invalid) or "END" (motor after 30 min).</p>
+
+<h2>Diagnostics</h2>
+<p>Telemetry window "VSGL2 Diagnose": requests, answers, fragmented, merged, junk bytes, errors,
+longest gap, gaps over 1 s, last request, memory.</p>
+
+<p class="hint">Provided as an aid without warranty; never control critical functions with Lua apps.
+The "XC-Flight" pages are tested in the emulator; a test with glasses and module is still pending.</p>
+</body>
+</html>

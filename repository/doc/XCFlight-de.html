@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XC-Flight</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 16px; line-height: 1.45; color: #222; background: #fff; }
+  h1 { color: #c8202c; margin-bottom: 4px; }
+  h2 { border-bottom: 1px solid #ddd; padding-bottom: 2px; margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #f3f3f3; }
+  .hint { background: #fff4e5; border-left: 4px solid #e8a33d; padding: 8px 10px; }
+</style>
+</head>
+<body>
+<h1>XC-Flight</h1>
+<p>Start-Erkennung und Wertungsflug für Streckenflüge nach dem Reglement der Free Glide League
+(Version 1.0.6). Neufassung auf Grundlage der App „Free Glide League“ von LeonAir RC.</p>
+
+<h2>Ablauf</h2>
+<ol>
+  <li><b>Bereit:</b> Startschalter einschalten, solange das Modell unter der Höchsthöhe (400 m) ist.</li>
+  <li><b>Einflugzeit (10 s):</b> mindestens 5 m über Grund, unter 400 m, ENL unter der Grenze (300 = 30 %)
+      und ununterbrochenes Sinken. Ein Verstoß löst einen Alarm aus und die Einflugzeit beginnt neu.</li>
+  <li><b>Wertungsflug:</b> GPS-Strecke, Ø-Geschwindigkeit und Flugzeit. Zeitwertungen bei 30 min, 1 h, 2 h, 3 h.</li>
+  <li><b>Reset-Schalter:</b> beendet die Messung, zurück zu „Bereit“.</li>
+</ol>
+
+<h2>Regeln im Wertungsflug</h2>
+<table>
+  <tr><th>Situation</th><th>Reaktion</th></tr>
+  <tr><td>über 700 m (Vorwarnhöhe)</td><td>Höhen-Alarm alle 5 s</td></tr>
+  <tr><td>über 750 m</td><td>UNGÜLTIG, Werte eingefroren</td></tr>
+  <tr><td>Motor an (ENL über Grenze und Steigen &gt; 1 m/s länger als 8 s) vor 30 min</td><td>UNGÜLTIG</td></tr>
+  <tr><td>Motor an nach 30 min</td><td>Wertung bis zur letzten erreichten Zeitstufe</td></tr>
+  <tr><td>Strecke unter 5 km</td><td>grau mit „&lt; 5 km“; bei 5 km drei Pieps</td></tr>
+</table>
+
+<h2>Einstellungen</h2>
+<table>
+  <tr><th>Bereich</th><th>Inhalt (Standard)</th></tr>
+  <tr><td>Sensoren</td><td>ENL, Höhe (relativ zum Startplatz), GPS Breiten- und Längengrad</td></tr>
+  <tr><td>Schalter</td><td>Start, Reset</td></tr>
+  <tr><td>Audio und Alarme</td><td>Ansage Ø-Geschwindigkeit alle 10 s (0 = aus), Audiodateien für ENL-, Steig-,
+      Höhen-Alarm und Start (ohne Datei: Ersatz-Pieps), Start-Countdown (Aus/Stimme/Beep)</td></tr>
+  <tr><td>Startregeln</td><td>Einflugzeit 10 s, Mindesthöhe 5 m, Höchsthöhe 400 m, ENL-Grenze 300,
+      Mindest-Sinken 0,0 m, Steig-Toleranz 0,3 m</td></tr>
+  <tr><td>Wertungsflug</td><td>Vorwarnhöhe 700 m, max. Wertungshöhe 750 m</td></tr>
+  <tr><td>Weitere</td><td>km-Ansage ab 5 km</td></tr>
+</table>
+<p>Während Einflugzeit und Flug ist das Menü gesperrt.</p>
+
+<h2>Anzeige</h2>
+<p>Ganzseitige Telemetrie-Anzeige „XC-Flight“: im Flug Strecke, Ø-Geschwindigkeit und Flugzeit groß,
+in der Einflugzeit der Countdown, rechts ein ENL-Balken mit Markierung der Grenze.</p>
+
+<h2>ENGO-2-Brille</h2>
+<p>Mit der App „VSpeak glasses 2“ (VSGL2) erscheinen die Werte auf der Brille:
+Seite „XC-Flight 1“ = Strecke, Ø-Geschwindigkeit, Flugzeit; Seite „XC-Flight 2“ = Höhe, Einflug-Timer, ENL.</p>
+
+<p class="hint">Hilfsmittel ohne Gewähr. Gewertet wird nach Reglement aus der IGC-Datei.
+Getestet im JETI-Studio-Emulator; der Test auf dem Sender steht noch aus.</p>
+</body>
+</html>

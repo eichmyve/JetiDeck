@@ -1,0 +1,76 @@
+{
+    "applications": [
+        {
+            "author": "JetiDeck",
+            "description": {
+                "de": "https://eichmyve.github.io/JetiDeck/repository/doc/XCFlight-de.html",
+                "en": "https://eichmyve.github.io/JetiDeck/repository/doc/XCFlight-en.html"
+            },
+            "files": [
+                {
+                    "destination": "Apps/XCFLIGHT.lc",
+                    "hash": "8cb24a25dfaccc1448e132c2c4ab7cb98302b230",
+                    "size": 19338,
+                    "url": "https://eichmyve.github.io/JetiDeck/lua/flug/XCFLIGHT.lc"
+                }
+            ],
+            "hw": [
+                674,
+                675,
+                676,
+                677,
+                678,
+                679,
+                680,
+                652,
+                653,
+                3857,
+                3858
+            ],
+            "id": 0,
+            "name": {
+                "de": "XC-Flight",
+                "en": "XC-Flight"
+            },
+            "previewIcon": "https://eichmyve.github.io/JetiDeck/repository/xcflight.png",
+            "releaseDate": "Mi Nov 25 00:00:00 2026",
+            "version": "2.10.0"
+        },
+        {
+            "author": "JetiDeck",
+            "description": {
+                "de": "https://eichmyve.github.io/JetiDeck/repository/doc/VSGL2-de.html",
+                "en": "https://eichmyve.github.io/JetiDeck/repository/doc/VSGL2-en.html"
+            },
+            "files": [
+                {
+                    "destination": "Apps/VSGL2.lc",
+                    "hash": "7995173b113e1fc43102c631f3fd295c4e351c6a",
+                    "size": 9346,
+                    "url": "https://eichmyve.github.io/JetiDeck/lua/VSGL2.lc"
+                }
+            ],
+            "hw": [
+                674,
+                675,
+                676,
+                677,
+                678,
+                679,
+                680,
+                652,
+                653,
+                3857,
+                3858
+            ],
+            "id": 0,
+            "name": {
+                "de": "VSpeak glasses 2",
+                "en": "VSpeak glasses 2"
+            },
+            "previewIcon": "https://eichmyve.github.io/JetiDeck/repository/vsgl2.png",
+            "releaseDate": "Mi Nov 25 00:00:00 2026",
+            "version": "0.3"
+        }
+    ]
+}
