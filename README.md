@@ -18,3 +18,8 @@ Dokumentation: `analyse/xc-flight/ANALYSE.md` (XC-Flight, Reglement-Abgleich, Sp
 
 Nicht enthalten sind Dateien Dritter (Jeti-API-Dokumentation, VSpeak-App, die Original-App,
 auf der XC-Flight aufbaut).
+
+## Lizenz
+
+MIT, siehe [LICENSE](LICENSE). Nutzung auf eigene Gefahr; die Apps ersetzen nicht die
+Auswertung nach Reglement (gewertet wird aus der IGC-Datei).
