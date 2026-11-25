@@ -11,6 +11,7 @@
   (nur eine App darf COM1 belegen!). Menue: Applikationen -> "VSpeak glasses 2".
   Diagnose: Telemetrie-Anzeige "VSGL2 Diagnose" auf den Desktop legen.
 
+  Ab 0.4: "Seiten" = 2 fuer 2-Stufen-Schalter (Aus Seite 1, Ein Seite 2).
   Ab 0.3: je Seite waehlbare Quelle "Sensoren" / "XC-Flight 1" (Strecke, Ø, Flugzeit) /
   "XC-Flight 2" (Hoehe, Einflug-Timer, ENL). Die Werte kommen fertig formatiert aus
   package.loaded["xcshare"] (von XC-Flight ab 2.10.0); veraltet (> 3 s) oder fehlend -> "-//-".
@@ -28,6 +29,7 @@ local FRAME = 36
 
 -- Einstellungen
 local swPage, swBle            -- Geber fuer Seite / BLE
+local nPages = 3               -- 3: 3-Stufen-Schalter (Mitte = 2), 2: 2-Stufen-Schalter
 local minus, unitsOn           -- 1..3 / bool
 local sid, sPa, sFo = {}, {}, {} -- 9 Plaetze: Sensor-ID, Parameter, Font (1..3)
 local sDec, sUnit = {}, {}       -- Cache: Nachkommastellen / Einheit je Platz
@@ -62,6 +64,7 @@ local function readPage()
   local v = swPage and system.getInputsVal(swPage)
   if not v then return 2 end
   v = v * 4096
+  if nPages == 2 then return v > 0 and 2 or 1 end   -- 2-Stufen-Schalter: Aus 1, Ein 2
   if v > 1000 then return 3 elseif v < -1000 then return 1 end
   return 2
 end
@@ -214,6 +217,9 @@ local function initForm()
 
   form.addRow(2); form.addLabel({ label = "Seiten-Schalter", width = 200 })
   form.addInputbox(swPage, true, function(v) swPage = v; save("swPage", v) end)
+  form.addRow(2); form.addLabel({ label = "Seiten", width = 150 })
+  form.addSelectbox({ "2 (Aus 1, Ein 2)", "3 (Mitte = 2)" }, nPages - 1, false, function(v)
+    nPages = v + 1; save("pages", nPages) end, { width = 170 })
   form.addRow(2); form.addLabel({ label = "BLE (On/Off)", width = 200 })
   form.addInputbox(swBle, false, function(v) swBle = v; save("swBle", v) end)
   form.addRow(2); form.addLabel({ label = "Minus signs", width = 200 })
@@ -291,6 +297,7 @@ end
 local function init()
   swPage = system.pLoad("swPage")
   swBle = system.pLoad("swBle")
+  nPages = system.pLoad("pages", 3)
   minus = system.pLoad("minus", 1)
   unitsOn = system.pLoad("units", 1) == 1
   for i = 1, 9 do
@@ -342,4 +349,4 @@ local function destroy()
   if sidPort then serial.onRead(sidPort, nil); serial.deinit(sidPort); sidPort = nil end
 end
 
-return { init = init, loop = loop, destroy = destroy, author = "JetiDeck", version = "0.3", name = appName }
+return { init = init, loop = loop, destroy = destroy, author = "JetiDeck", version = "0.4", name = appName }

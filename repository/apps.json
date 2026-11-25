@@ -45,8 +45,8 @@
             "files": [
                 {
                     "destination": "Apps/VSGL2.lc",
-                    "hash": "7995173b113e1fc43102c631f3fd295c4e351c6a",
-                    "size": 9346,
+                    "hash": "1c910ee20eaae86774d50cfae14c302b858f8b53",
+                    "size": 9658,
                     "url": "https://eichmyve.github.io/JetiDeck/lua/VSGL2.lc"
                 }
             ],
@@ -70,7 +70,7 @@
             },
             "previewIcon": "https://eichmyve.github.io/JetiDeck/repository/vsgl2.png",
             "releaseDate": "Mi Nov 25 00:00:00 2026",
-            "version": "0.3"
+            "version": "0.4"
         }
     ]
 }

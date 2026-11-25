@@ -9,3 +9,6 @@ __pycache__/
 
 # Videos und Bilder der Analyse - nur lokal
 analyse/xc-flight/video/
+
+# Sicherungen vom Sender - nur lokal
+analyse/ds12-backup/

@@ -129,3 +129,5 @@ Brillenseiten XC-Flight (umgesetzt 2026-11-25: XC-Flight 2.10.0 + VSGL2 0.3):
 1. COM1 auf DC-16 II: mit P1TEST prüfen (siehe oben).
 2. ~~Plus-Pin des Moduls~~ → geklärt: 3,3 V (P1-6), laut Anleitung.
 3. VSGL2 auf der DS-12 testen: Diagnosefenster beim nächsten Einfrieren ablesen.
+- Test am DS-12 mit ENGO 2 (2026-11-25, VSGL2 0.4): Seitenschalter ist 2-stufig; mit „Seiten = 2 (Aus 1, Ein 2)“
+  zeigt die Brille beide Seiten. Vorher (0.3) fehlte Seite 2, weil nur die Mittelstellung Seite 2 lieferte.
