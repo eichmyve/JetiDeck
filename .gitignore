@@ -6,3 +6,6 @@ analyse/xc-flight/original/
 # Python
 __pycache__/
 *.pyc
+
+# Videos und Bilder der Analyse - nur lokal
+analyse/xc-flight/video/
