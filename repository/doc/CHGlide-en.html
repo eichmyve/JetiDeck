@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>CH_Glide</title>
+</head>
+<body>
+<h1>CH_Glide</h1>
+<p>Outputs a control signal as Lua control "CHG". A tablet reads the corresponding servo channel on the
+EX Bus and switches pages and functions accordingly.</p>
+
+<h2>Items and default values</h2>
+<ul>
+<li>Start/Restart: +80 %, pulse 2.0 s</li>
+<li>Thermal page: −60 %, hold</li>
+<li>Glide page: −40 %, hold</li>
+<li>Start page: −80 %, hold</li>
+<li>Info page: −100 %, hold</li>
+<li>Mute vario: +20 %, hold</li>
+<li>Navbox value announcement 1 / 2 / 3: +40 / +50 / +60 %, pulse 1.0 s</li>
+<li>no item active: 0 %; error in the app: +100 %</li>
+</ul>
+<p><b>Hold:</b> the value is present while the switch is on. <b>Pulse:</b> the value is sent for the set
+duration (0.5…10 s) when the switch is turned on. A running pulse has priority; otherwise the most recently
+switched-on hold item wins. Heartbeat: the value changes by 1 % every other second.</p>
+
+<h2>Setup</h2>
+<ul>
+<li><b>Applications › CH_Glide:</b> set switch, value (−100…+100 %), type and duration for each item.
+The detail page shows the live switch state at the bottom.</li>
+<li><b>Functions assignment:</b> create a function, control = Lua control "CHG CH_Glide".</li>
+<li><b>Servo assignment:</b> put the function on the channel the tablet reads.</li>
+<li>Neutral servo settings: center 0, travel ±100 %, no curve/expo/delay.</li>
+</ul>
+<p>The app menu is in German. Changed values must also be updated on the tablet.</p>
+
+<p><i>Use at your own risk; do not control critical functions with Lua apps.</i></p>
+</body>
+</html>

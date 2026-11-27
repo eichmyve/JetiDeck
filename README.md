@@ -10,9 +10,10 @@ Diese App-Quelle in Jeti Studio unter **Datei > Konfiguration > App-Quellen** ei
 https://eichmyve.github.io/JetiDeck/repository/apps.json
 ```
 
-Danach lassen sich **XC-Flight** und **VSpeak glasses 2** im App-Manager von Jeti Studio
+Danach lassen sich **XC-Flight**, **VSpeak glasses 2** und **CH_Glide** im App-Manager von Jeti Studio
 installieren und aktualisieren. Hilfeseiten: [XC-Flight](https://eichmyve.github.io/JetiDeck/repository/doc/XCFlight-de.html),
-[VSpeak glasses 2](https://eichmyve.github.io/JetiDeck/repository/doc/VSGL2-de.html).
+[VSpeak glasses 2](https://eichmyve.github.io/JetiDeck/repository/doc/VSGL2-de.html),
+[CH_Glide](https://eichmyve.github.io/JetiDeck/repository/doc/CHGlide-de.html).
 
 Nach einer neuen `.lc`: `python tools/build_repo.py` erzeugt `repository/apps.json` neu
 (Größe und SHA-1 je Datei), dann committen und pushen.
@@ -22,6 +23,7 @@ Nach einer neuen `.lc`: `python tools/build_repo.py` erzeugt `repository/apps.js
 | `lua/XCFLIGHT.lua` | **XC-Flight**: Start-Erkennung und Wertungsflug nach dem Reglement der Free Glide League (Einflugzeit, Höhen-/ENL-/Motorregeln, Strecke, Ø-Geschwindigkeit, Zeitwertungen). Testfassung mit Log-Simulation. |
 | `lua/flug/XCFLIGHT.lc` | Flugfassung von XC-Flight für den Sender (ohne Simulation, kompiliert). |
 | `lua/VSGL2.lua` | Robuster Ersatz für die „VSpeak glasses“-App (ENGO 2 über das VSpeak-Modul an P1), mit Diagnose und Brillenseiten aus XC-Flight. |
+| `lua/CH_Glide.lua` | **CH_Glide**: Steuersignal fürs Tablet über einen Servokanal am EX Bus (Seiten, Vario stumm, Navbox-Ansagen). Eigenes Repo: [eichmyve/CH_Glide](https://github.com/eichmyve/CH_Glide). |
 | `lua/LCDUMP.lua` | Hilfs-App für den JETI-Studio-Emulator: kompiliert Apps zu `.lc`. |
 | `lua/P1TEST.lua` | Test der seriellen Schnittstelle P1/COM1. |
 

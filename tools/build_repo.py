@@ -40,6 +40,13 @@ APPS = [
         "files": [("lua/VSGL2.lc", "Apps/VSGL2.lc")],
         "icon": "repository/vsgl2.png",
     },
+    {
+        "key": "CHGlide",
+        "name": {"de": "CH_Glide", "en": "CH_Glide"},
+        "source": "lua/CH_Glide.lua",
+        "files": [("lua/CH_Glide.lc", "Apps/CH_Glide.lc")],
+        "icon": "repository/chglide.png",
+    },
 ]
 
 DAYS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]

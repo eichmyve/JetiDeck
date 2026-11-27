@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>CH_Glide</title>
+</head>
+<body>
+<h1>CH_Glide</h1>
+<p>Gibt ein Steuersignal als Lua-Geber „CHG“ aus. Ein Tablet liest den zugehörigen Servokanal am
+EX Bus mit und schaltet danach Seiten und Funktionen.</p>
+
+<h2>Punkte und Standardwerte</h2>
+<ul>
+<li>Start/Neustart: +80 %, Impuls 2,0 s</li>
+<li>Thermik-Seite: −60 %, Halten</li>
+<li>Gleiten-Seite: −40 %, Halten</li>
+<li>Start-Seite: −80 %, Halten</li>
+<li>Info-Seite: −100 %, Halten</li>
+<li>Vario stummschalten: +20 %, Halten</li>
+<li>Navbox-Wert Ansage 1 / 2 / 3: +40 / +50 / +60 %, Impuls 1,0 s</li>
+<li>kein Punkt aktiv: 0 %; Fehler in der App: +100 %</li>
+</ul>
+<p><b>Halten:</b> Wert liegt an, solange der Schalter an ist. <b>Impuls:</b> Wert kommt beim Einschalten
+für die eingestellte Dauer (0,5…10 s). Ein laufender Impuls hat Vorrang; sonst gewinnt der zuletzt
+eingeschaltete Halten-Punkt. Lebenszeichen: der Wert wechselt jede zweite Sekunde um 1 %.</p>
+
+<h2>Einrichten</h2>
+<ul>
+<li><b>Anwendungen › CH_Glide:</b> je Punkt Schalter, Wert (−100…+100 %), Art und Dauer einstellen.
+Die Detailseite zeigt unten live „Schalter: AKTIV/aus“.</li>
+<li><b>Funktionszuordnung:</b> Funktion anlegen, Geber = Lua-Geber „CHG CH_Glide“.</li>
+<li><b>Servozuordnung:</b> Funktion auf den Kanal legen, den das Tablet liest.</li>
+<li>Servoeinstellung neutral: Mitte 0, Weg ±100 %, keine Kurve/Expo/Verzögerung.</li>
+</ul>
+<p>Geänderte Werte auch am Tablet nachtragen.</p>
+
+<p><i>Hilfsmittel ohne Gewähr; keine kritischen Funktionen über Lua-Apps steuern.</i></p>
+</body>
+</html>
